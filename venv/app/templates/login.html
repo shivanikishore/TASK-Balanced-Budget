@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='row'>
+    <div class='col-2'>
+        <img class='img' src="{{url_for('static',filename='loginimg1.png')}}"  />
+    </div>
+<div class="col-8">
+<div class='col align-self-center'>
+    <div class="card text-center">
+        <div class="card-header" style="background-color: #fff;">
+            <form action="" method='POST' novalidate>
+                {{ form.hidden_tag() }}
+                <h1 style="color: #3abd93;">Login</h1>
+        
+        </div>
+        <div class="card-body" >
+            <p style="color: #3abd93;">
+                {{form.username.label}} : {{form.username(size=40)}}<br>
+                {% for error in form.username.errors %}
+                [{{error}}]
+                {% endfor %}
+            </p>
+            <p style="color: #3abd93;">
+                {{form.password.label}} : {{form.password(size=40)}}<br>
+                {% for error in form.username.errors %}
+                [{{error}}]
+                {% endfor %}
+            </p>
+            <p > 
+            {{form.submit()}}
+           &ensp;&ensp;&ensp; 
+        <b>New User? <a href='register' class='btn '>Register</a></b></p>
+    
+        </div>
+      </div>
+</div>
+  </div>
+</form>
+</div>
+{% endblock %}
+

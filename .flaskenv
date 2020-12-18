@@ -1,0 +1,2 @@
+FLASK_APP=envron.py
+FLASK_DEBUG=1

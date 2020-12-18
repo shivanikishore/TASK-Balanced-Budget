@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <style>
+             table {
+  /* border: 1px solid black;
+  border-collapse: collapse; */
+  background-color: transparent;
+  margin-top: 2%;
+  width:50%;
+  margin-left:10%;
+            } 
+            
+            .row {
+                display:table-row;
+                background: #fff;
+            }
+            .row.header{
+                color:#fff;
+                background:#3abd98 !important;
+                
+            }
+            .cell{
+                display: table-cell;
+            }
+            .row .cell{
+                font-family :sans-serif;
+                font-size:15px;
+                color:#666666;
+                line-height: 1.2;
+                font-weight: unset !important;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #f2f2f2;
+            }
+            .row.header .cell{
+                font-family:sans-serif;
+                font-size:18px;
+                color:#fff;
+                line-height:1.2;
+                font-weight: unset !important;
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+            }
+            .row .cell:nth-child(1){
+                width:200px;
+                padding-left: 10px;
+            }
+            .row .cell:nth-child(2){
+                width:140px;
+                padding-left: 10px;
+            }
+            .row .cell:nth-child(3){
+                width:140px;
+                padding-left: 10px;
+            }
+            .row .cell:nth-child(4){
+            width:140px;
+            padding-left: 10px;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <br>
+        <br>
+
+        <table>
+            <thead><tr class='row header'>
+                <td class='cell'>DATE</td>
+                <td class='cell'>Amount_Income</td>
+                <td class='cell'>Amount_Expenditure</td>
+                <td class='cell'>Total_Balance</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in data %}
+         <tr class="row">
+            
+             <td class="cell" data-title='DATE'>{{rec.date}}</td>
+             <td class="cell" data-title="Amount_Income">{{rec.amount_income}}</td>
+             <td class="cell" data-title="Amount_Expenditure">{{rec.amount_spent}}</td>
+             <td class="cell" data-title="Total_Balance">{{rec.total}}</td>
+
+         </tr>
+         {% endfor %}
+        </tbody>
+        </table>
+        <br>
+        <h4>Total Balance : <span style='color:red;'>{{total_balance}}</span></h4>
+    </body>
+</html>

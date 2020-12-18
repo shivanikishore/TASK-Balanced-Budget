@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            .col{
+                padding-top: 8%;
+                padding-right:6%;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <hr />
+    <div class='col align-self-center'>
+        <div class="card text-center">
+            <div class="card-header" style="background-color: #fff;">
+    <form action='' method='POST'>
+        <h1 style="color:#3abd98;">ADDING NEW</h1>
+        {{ form.hidden_tag() }}
+    </div>
+    <div class="card-body">
+        <div>
+            <p style="color:#3abd98;">
+                {{form.date.label}} (YY-MM-DD) : {{form.date(size=40)}} <br>
+                {% for error in form.date.errors %}
+                [{{error}}]
+                {% endfor %}
+               
+            </p>
+            <p style="color:#3abd98;">
+                {{form.amount_income.label}} : {{form.amount_income(size=40)}}<br>
+                {% for error in form.amount_income.errors %}
+                [{{error}}]
+                {% endfor %}
+            </p>
+            <p style="color:#3abd98;">
+                {{form.amount_spent.label}} : {{form.amount_spent(size=40)}}<br>
+                {% for error in form.amount_spent.errors %}
+                [{{error}}]
+                {% endfor %}
+            </p>
+           <p>{{form.submit()}}</p>
+           </div>
+        </div>
+    </form>
+    </div>
+  
+</div>
+{% with messages =get_flashed_messages() %}
+        {% if messages %}
+        <div class='col1 align-self-center'>
+        <div class="alert alert-primary" role="alert">
+             
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        
+       
+        </div>
+        </div>
+        {% endif %}
+
+        {% endwith %}
+    
+</body>
+</html>
